@@ -1,0 +1,53 @@
+.eshop-nav{
+    background-color: #deeff5;
+}
+.footer{
+    background-color: #000;
+    padding: 20px;
+    color: #d3d3d3;
+    width: 100%;
+    border: 1px solid #000;
+    position: fixed;
+    bottom: 0;
+    z-index: 999;
+}
+.footer a{
+    margin-right: 10px;
+    color: #d3d3d3;
+}
+.social-links{
+    float: right;
+}
+.nav .searchBar{
+    display: inline-block;
+    margin-top: 6px;
+    width: 60%;
+}
+.shop-body{
+    padding: 50px;
+}
+.login-register{
+    border: 2px solid rgba(75, 181, 230, 0.02);
+    border-radius: 5px;
+    padding: 20px;
+}
+.login-register label{
+    margin-top: 10px;
+}
+.optBtn{
+    background-color: #d3d3d3;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+    border-radius: 5px;
+    color: #22011A;
+    text-align: center;
+    cursor: pointer;
+}
+.optBtn.active{
+    background-color: #008197;
+}
+.active{
+    display: block;
+}
+.inactive{
+    display: none;
+}
