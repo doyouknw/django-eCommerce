@@ -17,51 +17,69 @@
                     <div class="inactive register">
                         <form id="reg-form" name="reg-form" method="POST" action="{% url 'register' %}">
                             {% csrf_token %}
-                            <label for="fullName">Full Name</label>
-                            <div class="input-group">
-                                <div class="input-group-addon">
-                                    <i class="glyphicon glyphicon-user"></i>
+                            {% if reg.errors %}
+                            <strong>{{ reg.errors }}</strong>
+                            {% endif %}
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <label for="id_first_name">First Name</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="glyphicon glyphicon-user"></i>
+                                        </div>
+                                        {{ reg.first_name }}
+                                    </div>
                                 </div>
-                                <input type="text" class="form-control" id="fullName" name="fullName" />
+                                <div col-lg-6 col-md-6 col-sm-6>
+                                    <label for="id_last_name">Last Name</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="glyphicon glyphicon-user"></i>
+                                        </div>
+                                        {{ reg.last_name }}
+                                    </div>
+                                </div>
                             </div>
-                            <label for="email">Email</label>
+                            <label for="id_email">Email</label>
                             <div class="input-group">
                                 <div class="input-group-addon">@</div>
-                                <input type="email" class="form-control" id="email" name="email" />
+                                {{ reg.email }}
                             </div>
-                            <label for="username">Username</label>
+                            <label for="id_username">Username</label>
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     <i class="glyphicon glyphicon-user"></i>
                                 </div>
-                                <input type="text" class="form-control" id="username" name="username" />
+                                {{ reg.username }}
                             </div>
-                            <label for="password">Password</label>
+                            <label for="id_password">Password</label>
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     <i class="glyphicon glyphicon-asterisk"></i>
                                 </div>
-                                <input type="password" class="form-control" id="password" name="password" />
+                                {{ reg.password1 }}
                             </div>
-                            <label for="cpassword">Confirm Password</label>
+                            <label for="id_cpassword">Confirm Password</label>
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     <i class="glyphicon glyphicon-asterisk"></i>
                                 </div>
-                                <input type="password" class="form-control" id="cpassword" name="cpassworm" />
+                                {{ reg.password2 }}
                             </div>
                             <br>
                             <button class="btn btn-primary" type="submit">Submit</button>
                         </form>
                     </div>
                     <div class="active login">
-                        <form action="#" id="log-form" name="log-form">
+                        <form action="{% url 'authenticate' %}" id="log-form" name="log-form" method="POST">
                             <br>
                             {% csrf_token %}
-                            {{ form.errors }}
-                            {{ form.username }}
+                            {% if form.errors %}
+                            <strong>{{ form.errors }}</strong>
+                            {% endif %}
+                            {{ form.lusername }}
                             <br>
-                            {{ form.password }}
+                            {{ form.lpassword }}
                             <br>
                             <button class="btn btn-default" type="submit">Login</button>
                         </form>
