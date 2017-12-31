@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'products',
     'shop.apps.ShopConfig',
     'django.contrib.admin',
     'django.contrib.auth',

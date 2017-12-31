@@ -13,17 +13,20 @@
     <link rel="stylesheet" href="{% static 'shop/css/bootstrap-theme.min.css' %}">
     <script src="{% static 'shop/js/jquery-3.2.1.min.js' %}"></script>
     <script src="{% static 'shop/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'main/myscript.js' %}"></script>
 </head>
 <body>
     <nav class="nav eshop-nav fixed">
         <div class="container-fluid">
             <div class="navbar-header">
-              <a class="navbar-brand" href="#"><img src="{% static 'shop/img/ecommerce-icon.png' %}" style="width: 36px; display: inline; margin-right: 3px; margin-top: -7px;">
+              <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'shop/img/ecommerce-icon.png' %}" style="width: 36px; display: inline; margin-right: 3px; margin-top: -7px;">
                 <span>e-Shop</span>  
               </a>
             </div>
             <div class="searchBar">
-                <input class="form-control" type="text" name="search" id="search" placeholder="Search"/>
+                <form id="searchForm" method="get" action="{% url 'home' %}">
+                    <input class="form-control" type="text" name="s" id="search" value="{{ request.GET.s }}" placeholder="Search"/>
+                </form>
             </div>
             <ul class="nav navbar-nav pull-right">
               {% if user.get_username %}
@@ -38,6 +41,7 @@
                   </ul>
               </li>
              {% else %}
+                <!--if not loggedin-->
               <li>
                   <a href="{% url 'login' %}">Login/Register</a>
               </li>
